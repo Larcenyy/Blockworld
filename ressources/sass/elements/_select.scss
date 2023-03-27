@@ -1,6 +1,9 @@
 $darkFont: #4b4f3e;
 $lightFont: #e2e6d7;
 
+
+
+
 *::selection {
     background: $lightFont;
     color: $darkFont;
@@ -9,6 +12,7 @@ $lightFont: #e2e6d7;
 
 
 #content_shop{
+    padding: 0.2rem;
     .payment-method {
         //@extend .borderType;
         height: 100%;
