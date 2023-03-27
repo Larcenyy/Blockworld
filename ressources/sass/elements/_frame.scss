@@ -1,0 +1,47 @@
+$darkFont: #4b4f3e;
+$lightFont: #e2e6d7;
+
+.borderFrame{
+    border: 10px solid #4b4f3e;
+}
+
+.btnFrame{
+    @extend .btnJoin;
+    animation-name: scale;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    background-color: #151414;
+    color: $lightFont;
+}
+
+@keyframes scale {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.frameVideo{
+    width: 85%;
+}
+
+
+iframe {
+    border: 10px solid $darkFont; /* ajustez la taille de la bordure comme souhaité */
+}
+
+@include media-breakpoint-up(md) { // Tabelette
+    .frameVideo{
+        width: 65%;
+    }
+}
+@include media-breakpoint-up(xl) { // PC
+    .frameVideo{
+        width: 850px;
+    }
+}

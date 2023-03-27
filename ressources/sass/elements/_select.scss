@@ -1,0 +1,75 @@
+$darkFont: #4b4f3e;
+$lightFont: #e2e6d7;
+
+*::selection {
+    background: $lightFont;
+    color: $darkFont;
+}
+
+
+
+#content_shop{
+    .payment-method {
+        //@extend .borderType;
+        height: 100%;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 100%;
+        }
+    }
+}
+
+.borderType{
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.25);
+    border-style: solid;
+    border-width: 0px 0px 4px 4px;
+    border-color: #4b4f40;
+    border-radius: 0px 0px 0px 0px;
+    box-shadow: -9px 9px 0px -5px #adb692 inset;
+}
+.maTop{
+    margin-top: 6rem;
+}
+
+input{
+    border: 4px solid rgba(75, 79, 62, 0.56)!important;
+    &::placeholder{
+        color: $lightFont!important;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+}
+::-webkit-scrollbar-track-piece  {
+    background-color: $lightFont;
+}
+::-webkit-scrollbar-thumb:vertical {
+    height: 30px;
+    background-color: $darkFont;
+}
+
+h1, h2, h3, h4{
+    font-weight: bold;
+}
+
+ul{
+    list-style: none;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.navActive{
+    background: $darkFont;
+}
+
+.firstLetter{
+    &:first-letter{
+        @extend .bold;
+    }
+}

@@ -1,0 +1,20 @@
+.footerLink{
+    i{
+        font-size: 18px;
+        color: white;
+        transition: 0.2s;
+        &:hover{
+            color: #4b4f3e;
+            background: #e2e6d7;
+            padding: 0.7rem;
+            border-radius: 3px;
+        }
+    }
+}
+
+footer a{
+    color: #ffffff;
+    text-decoration: underline;
+    border-radius: 3px;
+    padding: 0.2rem;
+}

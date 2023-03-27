@@ -1,0 +1,11 @@
+{
+    "id": "blockworld",
+    "name": "Blockworld",
+    "description": "Theme for Azuriom",
+    "version": "1.0.0",
+    "azuriom_api": "1.0.0",
+    "url": "https://azuriom.com",
+    "authors": [
+        "Azuriom"
+    ]
+}
