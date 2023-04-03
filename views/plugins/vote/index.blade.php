@@ -49,15 +49,15 @@
     </div>
 
     <div class="w-100 gap-3 d-flex justify-content-between">
-        <div class="w-25 bg-myText p-2 d-flex flex-column justify-content-between borderType rounded-1">
-            <div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus dolorum ducimus eius illo magnam nemo nulla provident sunt tenetur voluptatibus! Commodi culpa eligendi fugit, in nulla numquam officiis ratione tempore!</p>
+        @if(theme_config('vote.box.toggle'))
+            <div class="w-25 bg-myText p-2 d-flex flex-column justify-content-between borderType rounded-1">
+                <div>
+                    <p>{{theme_config("vote.text.descriptions")}}</p>
+                </div>
             </div>
-            <div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus dolorum ducimus eius illo magnam nemo nulla provident sunt tenetur voluptatibus! Commodi culpa eligendi fugit, in nulla numquam officiis ratione tempore!</p>
-            </div>
-        </div>
-        <div class="d-flex flex-column w-75">
+        @endif
+
+        <div class="d-flex flex-column {{ theme_config('vote.box.toggle') ? "w-75" : "w-100" }}">
             <div class="card borderType">
                 <div class="card-body w-100">
                     <h2 class="card-title">

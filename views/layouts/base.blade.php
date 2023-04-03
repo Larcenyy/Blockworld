@@ -82,11 +82,16 @@
     </header>
     @yield('app')
 </div>
+
+@if(theme_config('toTop.box.toggle'))
 <div class="position-fixed h-100 w-100" id="particles-js"></div>
 <a href="#app" class="mt-2 opacity-25 position-fixed end-0 bottom-0 translate-middle">
     <img class="wallNav" src="{{site_logo()}}" alt="">
 </a>
-<div class="d-flex flex-column start-0 position-fixed social_link">
+@endif
+
+@if(theme_config('social.box.toggle'))
+<div class="d-flex flex-column position-fixed social_link {{ theme_config('social.box.pos') ? "end-0 " : "start-0" }}">
     <ul class="d-flex flex-column justify-content-between p-3">
         @foreach(social_links() as $link)
             <a href="{{ $link->value }}" title="{{ $link->title }}" target="_blank" rel="noopener noreferrer"
@@ -97,6 +102,9 @@
         @endforeach
     </ul>
 </div>
+@endif
+
+
 <footer style="background: linear-gradient(0deg, rgba(51,54,41,1) 10%, rgba(0,219,255,0) 100%);"  class="text-center text-secondary-emphasis bg-myText mt-auto d-flex align-items-center flex-column w-100 mt-3">
     <div class="d-flex">
         <img class="wallNav" src="{{site_logo()}}" alt="">
@@ -121,6 +129,14 @@
 </footer>
 @include("elements.modal_login")
 @include("elements.modal_register")
+
+@if(theme_config('load.box.toggle'))
+<div class="page-loader">
+    <div class="spinner"></div>
+    <div class="txt">{{theme_config("load.text.content")}}</div>
+</div>
+@endif
+
 @stack('footer-scripts')
 <script src="{{theme_asset("js/app.js")}}"></script>
 <script src="{{theme_asset("js/particles.js")}}"></script>

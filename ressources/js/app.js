@@ -1,13 +1,11 @@
 window.addEventListener("DOMContentLoaded", (event) => {
-
-
     let playButton = document.getElementById("play-button");
 
     if (playButton){
         let showImg = document.getElementById("showImg");
 
         let iframe = document.createElement("iframe");
-        iframe.setAttribute("src", "https://www.youtube.com/embed/jMe3tdyjouM?autoplay=1");
+        iframe.setAttribute("src", videourl);
         iframe.setAttribute("width", "900");
         iframe.setAttribute("height", "700");
         iframe.setAttribute("frameborder", "0");
@@ -35,6 +33,26 @@ window.addEventListener("DOMContentLoaded", (event) => {
     })
 
 });
+
+window.addEventListener('load', (event) => {
+    fadeOutEffect()
+});
+
+function fadeOutEffect() {
+    let fadeTarget = document.querySelector(".page-loader");
+    let fadeEffect = setInterval(function () {
+        if (!fadeTarget.style.opacity) {
+            fadeTarget.style.opacity = 1;
+        }
+        if (fadeTarget.style.opacity > 0) {
+            fadeTarget.style.opacity -= 0.1;
+            fadeTarget.style.zIndex = -22;
+
+        } else {
+            clearInterval(fadeEffect);
+        }
+    }, 200);
+}
 
 AOS.init();
 
@@ -132,4 +150,6 @@ for (let i = 0; i < btnPrimary.length; i++){
         btnPrimary[i].classList.add("btnJoin");
     }
 }
+
+
 

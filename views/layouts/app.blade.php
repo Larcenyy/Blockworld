@@ -6,7 +6,7 @@
         <div class="home-anim d-flex align-items-center justify-content-center flex-column text-white mb-4"
              style="background: linear-gradient(0deg, rgba(51,54,41,1) 10%, rgba(0,219,255,0) 100%)  , url('{{ setting('background') ? image_url(setting('background')) : 'https://via.placeholder.com/2000x500' }}') center / cover no-repeat; min-height: 400px">
             <div class="mt-3">
-                <a href="" class="btnJoin text-myBackground" data-aos="fade-down">JOUER</a>
+                <a href="" class="btnJoin text-myBackground" data-aos="fade-down">{{theme_config("header.hero.btn")}}</a>
             </div>
             <div class="row gy-3 justify-content-between mt-3 w-50 align-items-center">
                 <div class="col-mb-6 col-xl-5  cursorAnim borderType">

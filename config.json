@@ -1,1 +1,54 @@
-{}
+{
+    "header": {
+        "box": {
+            "toggle": "on"
+        },
+        "hero": {
+            "btn": "BlockWorld | Loading",
+            "description": "CEST FAIT",
+            "texteBoxOne": "dddddddd",
+            "texteBoxTwo": "dddddddddddd"
+        }
+    },
+    "video": {
+        "text": {
+            "description": "CEST FAIT",
+            "btn": "CESTFAIT"
+        },
+        "link": {
+            "url": "https://www.youtube.com/watch?v=hAKdXopG31M&ab_channel=SQUEEZIE"
+        }
+    },
+    "vote": {
+        "text": {
+            "descriptions": "JAI CONFIG"
+        },
+        "box": {
+            "toggle": "on"
+        }
+    },
+    "load": {
+        "box": {
+            "toggle": "on"
+        },
+        "text": {
+            "content": "BlockWorld | Content"
+        }
+    },
+    "sponsor": {
+        "box": {
+            "toggle": "on"
+        }
+    },
+    "social": {
+        "box": {
+            "toggle": "on",
+            "pos": "on"
+        }
+    },
+    "toTop": {
+        "box": {
+            "toggle": "on"
+        }
+    }
+}
