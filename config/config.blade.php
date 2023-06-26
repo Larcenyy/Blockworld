@@ -1,5 +1,5 @@
 @extends('admin.layouts.admin')
-
+@php ($azuriomImages = \Azuriom\Models\Image::all())
 @section('title', 'Blockworld | Config')
 @push('footer-scripts')
     <script>
@@ -68,7 +68,7 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button shadow-lg collapsed fs-2" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                {{ trans('theme::prism.config.para_gene') }}
+                                {{ trans('theme::blockworld.config.para_gene') }}
                                 <h5 class="position-absolute bg-dark text-white top-0 start-0 w-auto">#1</h5>
                             </button>
                         </h2>
@@ -85,7 +85,7 @@
                                </div>
                                 <div class="form-check p-0">
                                     <div class="switcher d-flex flex-column align-items-center justify-content-center">
-                                        <small class="fw-bold fs-5">{{ trans('theme::prism.config.sponsor_show') }}</small>
+                                        <small class="fw-bold fs-5">{{ trans('theme::blockworld.config.sponsor_show') }}</small>
                                         <label for="sponsor-box-toggle">
                                             <input type="checkbox" id="sponsor-box-toggle" name="sponsor[box][toggle]" @if(theme_config('sponsor.box.toggle')) checked @endif @error('sponsor.box.toggle') is-invalid @enderror/>
                                             <span><small></small></span>
@@ -97,7 +97,7 @@
                                 </div>
                                 <div class="form-check p-0">
                                     <div class="switcher d-flex flex-column align-items-center justify-content-center">
-                                        <small class="fw-bold fs-5">{{ trans('theme::prism.config.social_show') }}</small>
+                                        <small class="fw-bold fs-5">{{ trans('theme::blockworld.config.social_show') }}</small>
                                         <label for="social-box-toggle">
                                             <input type="checkbox" id="social-box-toggle" name="social[box][toggle]" @if(theme_config('social.box.toggle')) checked @endif @error('social.box.toggle') is-invalid @enderror/>
                                             <span><small></small></span>
@@ -110,7 +110,7 @@
 
                                 <div class="form-check p-0">
                                     <div class="switcher d-flex flex-column align-items-center justify-content-center ">
-                                        <small class="fw-bold fs-5">{{ trans('theme::prism.config.social_pos') }}</small>
+                                        <small class="fw-bold fs-5">{{ trans('theme::blockworld.config.social_pos') }}</small>
                                         <label for="social-box-pos">
                                             <input type="checkbox" id="social-box-pos" name="social[box][pos]" @if(theme_config('social.box.pos')) checked @endif @error('social.box.pos') is-invalid @enderror/>
                                             <span><small></small></span>
@@ -123,7 +123,7 @@
 
                                 <div class="form-check p-0">
                                     <div class="switcher d-flex flex-column align-items-center justify-content-center">
-                                        <small class="fw-bold fs-5">{{ trans('theme::prism.config.toTop_show') }}</small>
+                                        <small class="fw-bold fs-5">{{ trans('theme::blockworld.config.toTop_show') }}</small>
                                         <label for="toTop-box-toggle">
                                             <input type="checkbox" id="toTop-box-toggle" name="toTop[box][toggle]" @if(theme_config('toTop.box.toggle')) checked @endif @error('toTop.box.toggle') is-invalid @enderror/>
                                             <span><small></small></span>
@@ -140,7 +140,7 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button shadow-lg collapsed fs-2" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne1" aria-expanded="false" aria-controls="flush-collapseOne">
-                                {{ trans('theme::prism.config.para_header') }}
+                                {{ trans('theme::blockworld.config.para_header') }}
                                 <h5 class="position-absolute bg-dark text-white top-0 start-0 w-auto">#1</h5>
                             </button>
                         </h2>
@@ -152,7 +152,7 @@
                                 </div>
                                 <div class="form-check p-0">
                                     <div class="switcher">
-                                        <small class="fw-bold fs-5">{{ trans('theme::prism.config.hero_boxShow') }}</small>
+                                        <small class="fw-bold fs-5">{{ trans('theme::blockworld.config.hero_boxShow') }}</small>
                                         <label for="header-box-toggle">
                                             <input type="checkbox" id="header-box-toggle" name="header[box][toggle]" @if(theme_config('header.box.toggle')) checked @endif @error('header.box.toggle') is-invalid @enderror/>
                                             <span><small></small></span>
@@ -163,7 +163,7 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label" for="footerDescriptionInput">{{ trans('theme::prism.config.hero_btn') }}</label>
+                                    <label class="form-label" for="footerDescriptionInput">{{ trans('theme::blockworld.config.hero_btn') }}</label>
                                     <textarea class="form-control @error('hero_btn') is-invalid @enderror" id="footerDescriptionInput" name="header[hero][btn]" rows="3">{{ old('header.hero.btn', theme_config('header.hero.btn')) }}</textarea>
 
                                     @error('hero_btn')
@@ -171,7 +171,7 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label" for="footerDescriptionInput">{{ trans('theme::prism.config.hero_description') }}</label>
+                                    <label class="form-label" for="footerDescriptionInput">{{ trans('theme::blockworld.config.hero_description') }}</label>
                                     <textarea class="form-control @error('hero_description') is-invalid @enderror" id="footerDescriptionInput" name="header[hero][description]" rows="3">{{ old('header.hero.description', theme_config('header.hero.description')) }}</textarea>
 
                                     @error('hero_description')
@@ -183,13 +183,13 @@
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
                                         <button class="bg-dark text-white accordion-button shadow-lg collapsed fs-2" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseBoxGauche" aria-expanded="false" aria-controls="flush-collapseBoxGauche">
-                                            {{ trans('theme::prism.config.para_boxgauche') }}
+                                            {{ trans('theme::blockworld.config.para_boxgauche') }}
                                         </button>
                                     </h2>
                                     <div id="flush-collapseBoxGauche" class="accordion-collapse collapse p-4" data-bs-parent="#accordionFlushExample2">
                                         {{--Box de gauche héro--}}
                                         <div class="mb-3">
-                                            <label class="form-label" for="footerDescriptionInput">{{ trans('theme::prism.config.hero_LeftboxTitle') }}</label>
+                                            <label class="form-label" for="footerDescriptionInput">{{ trans('theme::blockworld.config.hero_LeftboxTitle') }}</label>
                                             <textarea class="form-control @error('hero_LeftboxTitle') is-invalid @enderror" id="footerDescriptionInput" name="header[box][left][titleBoxLeft]" rows="3">{{ old('header.box.left.titleBoxLeft', theme_config('header.box.left.titleBoxLeft')) }}</textarea>
 
                                             @error('hero_LeftboxTitle')
@@ -197,7 +197,7 @@
                                             @enderror
                                         </div>
                                         <div class="mb-3">
-                                            <label class="form-label" for="footerDescriptionInput">{{ trans('theme::prism.config.hero_LeftboxDescrip') }}</label>
+                                            <label class="form-label" for="footerDescriptionInput">{{ trans('theme::blockworld.config.hero_LeftboxDescrip') }}</label>
                                             <textarea class="form-control @error('hero_LeftboxDescrip') is-invalid @enderror" id="footerDescriptionInput" name="header[box][left][descripBoxLeft]" rows="3">{{ old('header.box.left.descripBoxLeft', theme_config('header.box.left.descripBoxLeft')) }}</textarea>
 
                                             @error('hero_LeftboxDescrip')
@@ -205,7 +205,7 @@
                                             @enderror
                                         </div>
                                         <div class="mb-3">
-                                            <label class="form-label" for="footerDescriptionInput">{{ trans('theme::prism.config.hero_LeftboxIcon') }}</label>
+                                            <label class="form-label" for="footerDescriptionInput">{{ trans('theme::blockworld.config.hero_LeftboxIcon') }}</label>
 
                                             <code>Votre icon doit être obligatoirement être séléctionner depuis le site boostrap icon
                                                 <a href="https://icons.getbootstrap.com/">BOOSTRAP ICON</a>.</code>
@@ -226,13 +226,13 @@
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
                                         <button class="bg-dark text-white accordion-button shadow-lg collapsed fs-2" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseBoxDroite" aria-expanded="false" aria-controls="flush-collapseBoxDroite">
-                                            {{ trans('theme::prism.config.para_boxdroite') }}
+                                            {{ trans('theme::blockworld.config.para_boxdroite') }}
                                         </button>
                                     </h2>
                                     <div id="flush-collapseBoxDroite" class="accordion-collapse collapse p-4" data-bs-parent="#accordionFlushExample2">
                                         {{--Box de droite héro--}}
                                         <div class="mb-3">
-                                            <label class="form-label" for="footerDescriptionInput">{{ trans('theme::prism.config.hero_RightboxTitle') }}</label>
+                                            <label class="form-label" for="footerDescriptionInput">{{ trans('theme::blockworld.config.hero_RightboxTitle') }}</label>
                                             <textarea class="form-control @error('hero_RightboxTitle') is-invalid @enderror" id="footerDescriptionInput" name="header[box][right][titleBoxRight]" rows="3">{{ old('header.box.right.titleBoxRight', theme_config('header.box.right.titleBoxRight')) }}</textarea>
 
                                             @error('hero_RightboxTitle')
@@ -240,7 +240,7 @@
                                             @enderror
                                         </div>
                                         <div class="mb-3">
-                                            <label class="form-label" for="footerDescriptionInput">{{ trans('theme::prism.config.hero_RightboxDescrip') }}</label>
+                                            <label class="form-label" for="footerDescriptionInput">{{ trans('theme::blockworld.config.hero_RightboxDescrip') }}</label>
                                             <textarea class="form-control @error('hero_RightboxDescrip') is-invalid @enderror" id="footerDescriptionInput" name="header[box][right][descripBoxRight]" rows="3">{{ old('header.box.right.descripBoxRight', theme_config('header.box.right.descripBoxRight')) }}</textarea>
 
                                             @error('hero_RightboxDescrip')
@@ -249,7 +249,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label" for="footerDescriptionInput">{{ trans('theme::prism.config.hero_RightboxIcon') }}</label>
+                                            <label class="form-label" for="footerDescriptionInput">{{ trans('theme::blockworld.config.hero_RightboxIcon') }}</label>
 
                                             <code>Votre icon doit être obligatoirement être séléctionner depuis le site boostrap icon
                                                 <a href="https://icons.getbootstrap.com/">BOOSTRAP ICON</a>.</code>
@@ -277,7 +277,7 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="fs-2 accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                {{ trans('theme::prism.config.para_video') }}
+                                {{ trans('theme::blockworld.config.para_video') }}
                                 <h5 class="position-absolute bg-dark text-white top-0 start-0 w-auto">#2</h5>
                             </button>
                         </h2>
@@ -285,7 +285,7 @@
                             {{--      SECTION VIDEOS           ////////////////////--}}
                             <div class="form-check p-0">
                                 <div class="switcher">
-                                    <small class="fw-bold fs-5">{{ trans('theme::prism.config.video_show') }}</small>
+                                    <small class="fw-bold fs-5">{{ trans('theme::blockworld.config.video_show') }}</small>
                                     <label for="video-box-toggle">
                                         <input type="checkbox" id="video-box-toggle" name="video[box][toggle]" @if(theme_config('video.box.toggle')) checked @endif @error('video.box.toggle') is-invalid @enderror/>
                                         <span><small></small></span>
@@ -296,7 +296,7 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="footerDescriptionInput">{{ trans('theme::prism.config.video_description') }}</label>
+                                <label class="form-label" for="footerDescriptionInput">{{ trans('theme::blockworld.config.video_description') }}</label>
                                 <textarea class="form-control @error('video_description') is-invalid @enderror" id="footerDescriptionInput" name="video[text][description]" rows="3">{{ old('video.text.description', theme_config('video.text.description')) }}</textarea>
 
                                 @error('video_description')
@@ -304,7 +304,7 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="footerDescriptionInput">{{ trans('theme::prism.config.video_btn') }}</label>
+                                <label class="form-label" for="footerDescriptionInput">{{ trans('theme::blockworld.config.video_btn') }}</label>
                                 <textarea class="form-control @error('video_btn') is-invalid @enderror" id="footerDescriptionInput" name="video[text][btn]" rows="3">{{ old('video.text.btn', theme_config('video.text.btn')) }}</textarea>
 
                                 @error('video_btn')
@@ -312,7 +312,7 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="footerDescriptionInput">{{ trans('theme::prism.config.video_link') }}</label>
+                                <label class="form-label" for="footerDescriptionInput">{{ trans('theme::blockworld.config.video_link') }}</label>
                                 <code>/!\ Récupéré l'ID de l'url de votre vidéo afin que l'iframe fonctionne.
                                     <a href="https://www.youtube.com/watch?v=MH19CxWqluY&ab_channel=St%C3%A9phaneRALJEVIC">Comment récupéré un ID d'une vidéo</a></code>
                                 <textarea class="form-control @error('video_link') is-invalid @enderror" id="footerDescriptionInput" name="video[link][url]" rows="3">{{ old('video.link.url', theme_config('video.link.url')) }}</textarea>
@@ -322,6 +322,33 @@
                                 <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                 @enderror
                             </div>
+
+
+
+                            <div class="form-group">
+                                <label class="form-label" for="footerDescriptionInput">{{ trans('theme::blockworld.config.video_img') }}</label>
+                                <div class="d-flex align-center">
+                                    <a class=" input-group-text text-success" href="{{ route('admin.images.create') }}" title="Upload a image"  target="_blank" rel="noopener noreferrer">
+                                        <i class="bi bi-upload"></i>
+                                    </a>
+                                    <select class="form-select"
+                                            id="footerDescriptionInput"
+                                            name="video[img][url]" type="file" class="form-control @error('video.img.url') is-invalid @enderror">;
+                                        <option value="">Aucune</option>
+                                        @foreach($azuriomImages as $image)
+                                            <option value="{{ $image->file }}"
+                                                    @if(config('video.img.url') == $image->file) selected @endif>{{ $image->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                @error("video.img.url")
+
+                                <small class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></small>
+                                @enderror
+                            </div>
+
+
                         </div>
                     </div>
 
@@ -329,13 +356,13 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="fs-2 accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-                                {{ trans('theme::prism.config.para_vote') }}
+                                {{ trans('theme::blockworld.config.para_vote') }}
                                 <h5 class="position-absolute bg-dark text-white top-0 start-0 w-auto">#4</h5>
                             </button>
                         </h2>
                         <div id="flush-collapseFour" class="accordion-collapse collapse p-4" data-bs-parent="#accordionFlushExample">
                             <div class="mb-3">
-                                <label class="form-label" for="footerDescriptionInput">{{ trans('theme::prism.config.vote_content') }}</label>
+                                <label class="form-label" for="footerDescriptionInput">{{ trans('theme::blockworld.config.vote_content') }}</label>
                                 <textarea class="form-control @error('vote_content') is-invalid @enderror" id="footerDescriptionInput" name="vote[text][descriptions]" rows="3">{{ old('vote.text.descriptions', theme_config('vote.text.descriptions')) }}</textarea>
 
                                 @error('vote_content')
@@ -344,7 +371,7 @@
                             </div>
                             <div class="form-check p-0">
                                 <div class="switcher">
-                                    <small class="fw-bold fs-5">{{ trans('theme::prism.config.vote_show') }}</small>
+                                    <small class="fw-bold fs-5">{{ trans('theme::blockworld.config.vote_show') }}</small>
                                     <label for="vote-box-toggle">
                                         <input type="checkbox" id="vote-box-toggle" name="vote[box][toggle]" @if(theme_config('vote.box.toggle')) checked @endif @error('vote.box.toggle') is-invalid @enderror/>
                                         <span><small></small></span>
@@ -360,7 +387,7 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="fs-2 accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
-                                {{ trans('theme::prism.config.para_load') }}
+                                {{ trans('theme::blockworld.config.para_load') }}
                                 <h5 class="position-absolute bg-dark text-white top-0 start-0 w-auto">#5</h5>
                             </button>
                         </h2>
@@ -368,7 +395,7 @@
                             <div class="form-check p-0">
                                 <code>Cette option permet de charger un loader, lors d'un chargement long d'une page, une animation est alors proposée.</code>
                                 <div class="switcher">
-                                    <small class="fw-bold fs-5">{{ trans('theme::prism.config.load_show') }}</small>
+                                    <small class="fw-bold fs-5">{{ trans('theme::blockworld.config.load_show') }}</small>
                                     <label for="load-box-toggle">
                                         <input type="checkbox" id="load-box-toggle" name="load[box][toggle]" @if(theme_config('load.box.toggle')) checked @endif @error('load.box.toggle') is-invalid @enderror/>
                                         <span><small></small></span>
@@ -379,7 +406,7 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="footerDescriptionInput">{{ trans('theme::prism.config.load_text') }}</label>
+                                <label class="form-label" for="footerDescriptionInput">{{ trans('theme::blockworld.config.load_text') }}</label>
                                 <textarea class="form-control @error('load_text') is-invalid @enderror" id="footerDescriptionInput" name="load[text][content]" rows="3">{{ old('load.text.content', theme_config('load.text.content')) }}</textarea>
 
                                 @error('load_text')

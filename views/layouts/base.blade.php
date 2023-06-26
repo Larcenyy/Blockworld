@@ -123,7 +123,7 @@
     <hr class="w-100">
     <div class="copyright rounded-1 p-0">
         <div class="container mt-6">
-            <p class="fs-6 text-myBackground">{{ setting('copyright') }} | @lang('messages.copyright')</p>
+            <p class="fs-6 text-myBackground">{{ setting('copyright') }} | {{ trans('theme::blockworld.config.footer') }}- @lang('messages.copyright')</p>
         </div>
     </div>
 </footer>
