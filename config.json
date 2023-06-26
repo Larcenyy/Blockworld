@@ -3,19 +3,19 @@
         "box": {
             "toggle": "on",
             "left": {
-                "titleBoxLeft": "test",
-                "descripBoxLeft": "titre box gauche",
+                "titleBoxLeft": "A modifi\u00e9",
+                "descripBoxLeft": "A modifi\u00e9",
                 "iconBoxLeft": "bi bi-123"
             },
             "right": {
-                "titleBoxRight": "titre de la box droite",
-                "descripBoxRight": "descriptions box droite",
+                "titleBoxRight": "A modifi\u00e9",
+                "descripBoxRight": "A modifi\u00e9",
                 "iconBoxRight": "bi bi-2-square-fill"
             }
         },
         "hero": {
-            "btn": "CEST FAIT",
-            "description": "CEST FAIT"
+            "btn": "A modifi\u00e9",
+            "description": "A modifi\u00e9"
         }
     },
     "video": {
@@ -23,16 +23,19 @@
             "toggle": "on"
         },
         "text": {
-            "description": "CEST FAIT",
-            "btn": "CESTFAIT"
+            "description": "A modifi\u00e9",
+            "btn": "A modifi\u00e9"
         },
         "link": {
             "url": "jMe3tdyjouM"
+        },
+        "img": {
+            "url": "test.png"
         }
     },
     "vote": {
         "text": {
-            "descriptions": "CEST FAIT"
+            "descriptions": "A modifi\u00e9"
         },
         "box": {
             "toggle": "on"
@@ -43,7 +46,7 @@
             "toggle": "on"
         },
         "text": {
-            "content": "CEST FAIT"
+            "content": "A modifi\u00e9"
         }
     },
     "sponsor": {

@@ -18,6 +18,7 @@ return [
         'video_description' => 'Texte du champs vidéos',
         'video_btn' => 'Texte du boutton',
         'video_link' => 'Lien de la vidéos',
+        'video_img' => 'Fichier image',
 
         'vote_content' => 'Texte page vote',
         'load_text' => 'Texte du chargement de page',
@@ -40,6 +41,10 @@ return [
         'para_vote' => 'Paramètre du plugin vote',
         'para_footer' => 'Paramètre du footer',
         'para_load' => 'Paramètre du loader',
+
+        'footer' => 'Thème créer par Larceny ',
+
+
 
 
 

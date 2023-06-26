@@ -173,7 +173,7 @@
             <a href="" class="btnFrame">{{theme_config("video.text.btn")}}</a>
         </div>
         <div data-aos="zoom-in-left" class="d-flex flex-colum align-items-center justify-content-center position-relative">
-            <img class="borderFrame mx-auto frameVideo" id="showImg" src="{{ $post->imageUrl() }}"/>
+            <img class="borderFrame mx-auto frameVideo" id="showImg" src="{{ image_url(theme_config("video.img.url")) }}"/>
             <button id="play-button" class="border-0  text-myText rounded-1 position-absolute top-50 start-50 translate-middle z-3 fs-1"> <i class="bi bi-play-fill"></i></button>
         </div>
     </section>
