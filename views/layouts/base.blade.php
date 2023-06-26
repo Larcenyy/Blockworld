@@ -83,11 +83,11 @@
     @yield('app')
 </div>
 
+<div class="position-fixed h-100 w-100" id="particles-js"></div >
 @if(theme_config('toTop.box.toggle'))
-<div class="position-fixed h-100 w-100" id="particles-js"></div>
-<a href="#app" class="mt-2 opacity-25 position-fixed end-0 bottom-0 translate-middle">
-    <img class="wallNav" src="{{site_logo()}}" alt="">
-</a>
+    <a href="#app" class="mt-2 opacity-25 position-fixed end-0 bottom-0 translate-middle">
+        <img class="wallNav" src="{{site_logo()}}" alt="">
+    </a>
 @endif
 
 @if(theme_config('social.box.toggle'))

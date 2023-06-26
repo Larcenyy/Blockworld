@@ -12,22 +12,22 @@
                 <div class="col-mb-6 col-xl-5  cursorAnim borderType">
                     <div class="d-flex flex-column align-items-center my-2">
                         <p>
-                            <i class="bi bi-person-fill fs-3"></i>
-                            <em class="fs-6">33 inscrits sur notre site</em>
+                            <i class="{{theme_config("header.box.left.iconBoxLeft")}}"></i>
+                            <em class="fs-6">{{theme_config("header.box.left.titleBoxLeft")}}</em>
                         </p>
                         <p class="fs-4 firstLetter">
-                            Membres Inscrits
+                            {{theme_config("header.box.left.descripBoxLeft")}}
                         </p>
                     </div>
                 </div>
                 <div class="col-mb-6 col-xl-5  cursorAnim borderType">
                     <div class="d-flex flex-column align-items-center my-2">
                         <p>
-                            <i class="bi bi-person-fill fs-3"></i>
-                            <em class="fs-6">33 inscrits sur notre site</em>
+                            <i class="{{theme_config("header.box.right.iconBoxRight")}}"></i>
+                            <em class="fs-6">{{theme_config("header.box.right.titleBoxRight")}}</em>
                         </p>
                         <p class="fs-4 firstLetter">
-                            Membres Inscrits
+                            {{theme_config("header.box.right.descripBoxRight")}}
                         </p>
                     </div>
                 </div>

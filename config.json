@@ -1,27 +1,38 @@
 {
     "header": {
         "box": {
-            "toggle": "on"
+            "toggle": "on",
+            "left": {
+                "titleBoxLeft": "test",
+                "descripBoxLeft": "titre box gauche",
+                "iconBoxLeft": "bi bi-123"
+            },
+            "right": {
+                "titleBoxRight": "titre de la box droite",
+                "descripBoxRight": "descriptions box droite",
+                "iconBoxRight": "bi bi-2-square-fill"
+            }
         },
         "hero": {
-            "btn": "BlockWorld | Loading",
-            "description": "CEST FAIT",
-            "texteBoxOne": "dddddddd",
-            "texteBoxTwo": "dddddddddddd"
+            "btn": "CEST FAIT",
+            "description": "CEST FAIT"
         }
     },
     "video": {
+        "box": {
+            "toggle": "on"
+        },
         "text": {
             "description": "CEST FAIT",
             "btn": "CESTFAIT"
         },
         "link": {
-            "url": "https://www.youtube.com/watch?v=hAKdXopG31M&ab_channel=SQUEEZIE"
+            "url": "jMe3tdyjouM"
         }
     },
     "vote": {
         "text": {
-            "descriptions": "JAI CONFIG"
+            "descriptions": "CEST FAIT"
         },
         "box": {
             "toggle": "on"
@@ -32,7 +43,7 @@
             "toggle": "on"
         },
         "text": {
-            "content": "BlockWorld | Content"
+            "content": "CEST FAIT"
         }
     },
     "sponsor": {
