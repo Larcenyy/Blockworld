@@ -19,7 +19,7 @@ const cssPath = assets + '/css'
 
 mix.disableNotifications()
     .setPublicPath(assets + '/')
-    .js('js/app.js', jsPath)
+    .js('js/scripts.js', jsPath)
     .sass('sass/styles.scss', '/css')
     .options({
         processCssUrls: false,

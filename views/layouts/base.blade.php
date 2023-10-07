@@ -127,8 +127,7 @@
         </div>
     </div>
 </footer>
-@include("elements.modal_login")
-@include("elements.modal_register")
+
 
 @if(theme_config('load.box.toggle'))
 <div class="page-loader">
@@ -138,7 +137,7 @@
 @endif
 
 @stack('footer-scripts')
-<script src="{{theme_asset("js/app.js")}}"></script>
+<script src="{{theme_asset("js/scripts.js")}}"></script>
 <script src="{{theme_asset("js/particles.js")}}"></script>
 </body>
 </html>

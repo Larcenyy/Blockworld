@@ -324,8 +324,20 @@
                             </div>
 
 
+                            <div class="form-check p-0 mt-4">
+                                <div class="switcher">
+                                    <small class="fw-bold fs-5">{{ trans('theme::blockworld.config.video_toogle') }}</small>
+                                    <label for="video-img-toggle">
+                                        <input type="checkbox" id="video-img-toggle" name="video[img][toggle]" @if(theme_config('video.img.toggle')) checked @endif @error('video.img.toggle') is-invalid @enderror/>
+                                        <span><small></small></span>
+                                    </label>
+                                </div>
+                                @error('video-img-toggle')
+                                <small class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></small>
+                                @enderror
+                            </div>
 
-                            <div class="form-group">
+                            <div class="form-group mt-4">
                                 <label class="form-label" for="footerDescriptionInput">{{ trans('theme::blockworld.config.video_img') }}</label>
                                 <div class="d-flex align-center">
                                     <a class=" input-group-text text-success" href="{{ route('admin.images.create') }}" title="Upload a image"  target="_blank" rel="noopener noreferrer">

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark py-3 position-fixed w-100 navIndex">
+<nav class="p-3 mb-5 navbar navbar-expand-md navbar-dark py-3 position-fixed w-100 navIndex">
     <div class="container">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="{{ trans('messages.nav.toggle') }}">
             <span class="navbar-toggler-icon"></span>
@@ -39,27 +39,23 @@
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <button type="button" class="nav-link text-dark border-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            {{ trans('auth.login') }}
-                        </button>
+                        <a class="nav-link text-dark bg-myBackground  border-0"  href="{{ route('login') }}">{{ trans('auth.login') }}</a>
                     </li>
                     @if(Route::has('register'))
                         <li class="nav-item">
-                            <button type="button" class="nav-link border-0 bg-myBackground text-dark" data-bs-toggle="modal" data-bs-target="#register">
-                                {{ trans('auth.register') }}
-                            </button>
+                            <a class="nav-link border-0 bg-myBackground text-dark"  href="{{ route('register') }}">{{ trans('auth.register') }}</a>
                         </li>
                     @endif
                 @else
                     @include('elements.notifications')
                     <li class="nav-item dropdown">
-                            <a id="userDropdown" class="nav-link d-flex flex-column align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <img src="{{ Auth::user()->getAvatar(32) }}" alt="{{ Auth::user()->name }}">
-                                <span class="d-flex gap-1">
+                        <a id="userDropdown" class="nav-link d-flex flex-column align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <img src="{{ Auth::user()->getAvatar(32) }}" alt="{{ Auth::user()->name }}">
+                            <span class="d-flex gap-1">
                                 {{ Auth::user()->name }}
                                 <i class="bi bi-caret-down-fill"></i>
                             </span>
-                            </a>
+                        </a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="{{ route('profile.index') }}">
                                 <i class="bi bi-person"></i> {{ trans('messages.nav.profile') }}

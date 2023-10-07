@@ -3,39 +3,37 @@
         "box": {
             "toggle": "on",
             "left": {
-                "titleBoxLeft": "A modifi\u00e9",
-                "descripBoxLeft": "A modifi\u00e9",
+                "titleBoxLeft": "To configure",
+                "descripBoxLeft": "To configure",
                 "iconBoxLeft": "bi bi-123"
             },
             "right": {
-                "titleBoxRight": "A modifi\u00e9",
-                "descripBoxRight": "A modifi\u00e9",
+                "titleBoxRight": "To configure",
+                "descripBoxRight": "To configure",
                 "iconBoxRight": "bi bi-2-square-fill"
             }
         },
         "hero": {
-            "btn": "A modifi\u00e9",
-            "description": "A modifi\u00e9"
+            "btn": "To configure",
+            "description": "To configure"
         }
     },
     "video": {
-        "box": {
-            "toggle": "on"
-        },
         "text": {
-            "description": "A modifi\u00e9",
-            "btn": "A modifi\u00e9"
+            "description": "To configure",
+            "btn": "To configure"
         },
         "link": {
             "url": "jMe3tdyjouM"
         },
         "img": {
-            "url": "test.png"
+            "toggle": "on",
+            "url": null
         }
     },
     "vote": {
         "text": {
-            "descriptions": "A modifi\u00e9"
+            "descriptions": "To configure"
         },
         "box": {
             "toggle": "on"
@@ -46,7 +44,7 @@
             "toggle": "on"
         },
         "text": {
-            "content": "A modifi\u00e9"
+            "content": "To configure"
         }
     },
     "sponsor": {

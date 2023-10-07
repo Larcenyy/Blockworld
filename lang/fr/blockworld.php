@@ -18,7 +18,9 @@ return [
         'video_description' => 'Texte du champs vidéos',
         'video_btn' => 'Texte du boutton',
         'video_link' => 'Lien de la vidéos',
-        'video_img' => 'Fichier image',
+        'video_img' => 'Fichier image (image présentation -> dois être activer)',
+        'video_toogle' => 'Activer image de présentation (conseiller) ',
+        'text_patchnote' => 'Voir',
 
         'vote_content' => 'Texte page vote',
         'load_text' => 'Texte du chargement de page',

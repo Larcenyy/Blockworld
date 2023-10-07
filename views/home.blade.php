@@ -15,15 +15,29 @@
         @if(theme_config('header.box.toggle'))
             <div class="d-flex flex-row gap-1 w-100 justify-content-around">
                 <div class="d-flex rounded-1 gap-3 align-items-center cursorAnim d-flex  justify-content-center text-myBackground p-3 borderType rounded-1 w-25">
-                    <div class="d-flex flex-column align-items-center">
-                        <p>
-                            <i class="{{theme_config("header.box.left.iconBoxLeft")}}"></i>
-                            <em class="fs-6">{{theme_config("header.box.left.titleBoxLeft")}}</em>
-                        </p>
-                        <p class="fs-4 firstLetter">
-                            {{theme_config("header.box.left.descripBoxLeft")}}
-                        </p>
-                    </div>
+                        @if($server)
+                            <div class="d-flex flex-column align-items-center">
+                                @if($server->isOnline())
+                                    <p>
+                                        <i class="{{theme_config("header.box.left.iconBoxLeft")}}"></i>
+                                        <em class="fs-6">{{ trans_choice('messages.server.online', $server->getOnlinePlayers()) }}</em>
+                                    </p>
+                                    @if($server->joinUrl())
+                                        <a href="{{ $server->joinUrl() }}" class="btnJoin text-myBackground">
+                                            {{ trans('messages.server.join') }}
+                                        </a>
+                                    @endif
+                                @else
+                                <p>
+                                    <span class="fs-6 badge bg-danger text-white">
+                                        <i class="{{theme_config("header.box.left.iconBoxLeft")}}"></i>
+                                        {{ trans('messages.server.offline') }}
+                                    </span>
+                                    <p class="fw-bold">{{ $server->fullAddress() }}</p>
+                                </p>
+                            </div>
+                        @endif
+                    @endif
                 </div>
                 <div class="d-flex rounded-1 gap-3 align-items-center cursorAnim d-flex  justify-content-center text-myBackground p-3 borderType rounded-1 w-25">
                     <div class="d-flex flex-column align-items-center">
@@ -38,23 +52,8 @@
                 </div>
             </div>
         @endif
-
-        @if($server)
-            @if($server->isOnline())
-                <h2>{{ trans_choice('messages.server.online', $server->getOnlinePlayers()) }}</h2>
-            @else
-                <h2>{{ trans('messages.server.offline') }}</h2>
-            @endif
-
-            @if($server->joinUrl())
-                <a href="{{ $server->joinUrl() }}" class="btn btn-secondary btn-lg">
-                    {{ trans('messages.server.join') }}
-                </a>
-            @else
-                <h3>{{ $server->fullAddress() }}</h3>
-            @endif
-        @endif
     </div>
+
     <div class="container content mb-5 pb-5">
         @include('elements.session-alerts')
 
@@ -65,53 +64,7 @@
                 </div>
             </div>
         @endif
-        @if(! $servers->isEmpty())
-            <h2 class="text-center">
-                {{ trans('messages.servers') }}
-            </h2>
 
-            <div class="row gy-3 justify-content-center mb-4">
-                @foreach($servers as $server)
-                    <div class="col-md-4">
-                        <div class="card h-100">
-                            <div class="card-body text-center">
-                                <h3 class="card-title">
-                                    {{ $server->name }}
-                                </h3>
-
-                                @if($server->isOnline())
-                                    <div class="progress mb-1">
-                                        <div class="progress-bar" role="progressbar"
-                                             style="width: {{ $server->getPlayersPercents() }}%">
-                                        </div>
-                                    </div>
-
-                                    <p class="mb-1">
-                                        {{ trans_choice('messages.server.total', $server->getOnlinePlayers(), [
-                                            'max' => $server->getMaxPlayers(),
-                                        ]) }}
-                                    </p>
-                                @else
-                                    <p>
-                                        <span class="badge bg-danger text-white">
-                                            {{ trans('messages.server.offline') }}
-                                        </span>
-                                    </p>
-                                @endif
-
-                                @if($server->joinUrl())
-                                    <a href="{{ $server->joinUrl() }}" class="btn btn-primary">
-                                        {{ trans('messages.server.join') }}
-                                    </a>
-                                @else
-                                    <p class="card-text">{{ $server->fullAddress() }}</p>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        @endif
 
         @if(! $posts->isEmpty())
             <div class="row w-100">
@@ -134,11 +87,8 @@
                                 <div class="postcard__bar bg-myBackground rounded-1"></div>
                                 <div class="postcard__preview-txt overflow-hidden h-100">{{ Str::limit(strip_tags($post->content), 250) }}</div>
                                 <ul class="postcard__tagbox fs-6">
-                                    <li class="tag__item bg-myBackground text-myText">
-                                        <i class="fas fa-tag mr-2"></i>Nouveaux!
-                                    </li>
                                     <li class="tag__item">
-                                        <a href="{{ route('posts.show', $post) }}"><i class="fas fa-play mr-2"></i>{{ trans('messages.posts.read') }}</a>
+                                        <a href="{{ route('posts.show', $post) }}"><i class="fas fa-play mr-2"></i>{{ trans('theme::blockworld.config.text_patchnote') }}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -150,74 +100,77 @@
     </div>
 
 
-    @if(theme_config('sponsor.box.toggle'))
-    <section class="w-100 d-flex justify-content-center p-3 flex-column">
-        <h2 class="firstLetter text-myBackground text-center fs-4 line-1 anim-typewriter">Ils nous soutiennent</h2>
-        <div class="d-flex gap-3 mt-3 w-100">
-            <div data-aos="flip-right" class="shadowBox rounded-3 home-anim home-background w-25 bg-light cursorAnim" style="background: url('{{ setting('background') ? image_url(setting('background')) : 'https://via.placeholder.com/2000x500' }}') center / cover no-repeat; height: 250px">
-                <p>Soutenir</p>
+{{--    @if(theme_config('sponsor.box.toggle'))--}}
+{{--        <section class="w-100 d-flex justify-content-center p-3 flex-column">--}}
+{{--            <h2 class="firstLetter text-myBackground text-center fs-4 line-1 anim-typewriter">Ils nous soutiennent</h2>--}}
+{{--            <div class="d-flex gap-3 mt-3 w-100">--}}
+{{--                <div data-aos="flip-right" class="shadowBox rounded-3 home-anim home-background w-25 bg-light cursorAnim" style="background: url('{{ setting('background') ? image_url(setting('background')) : 'https://via.placeholder.com/2000x500' }}') center / cover no-repeat; height: 250px">--}}
+{{--                    <p>Soutenir</p>--}}
+{{--                </div>--}}
+{{--                <div data-aos="flip-right" class="cursorAnim shadowBox rounded-3 home-anim home-background w-50 bg-light" style="background: url('{{ setting('background') ? image_url(setting('background')) : 'https://via.placeholder.com/2000x500' }}') center / cover no-repeat; height: 250px">--}}
+{{--                    <p class="bg-myBackground text-myText text-warning w-auto p-2 rounded-1 text-center font-monospace">Nouveau partenaire <i class="bi bi-exclamation-lg bg-danger text-myBackground rounded-1"></i></p>--}}
+{{--                </div>--}}
+{{--                <div data-aos="flip-right" class="cursorAnim shadowBox rounded-3 home-anim home-background w-25 bg-light" style="background: url('{{ setting('background') ? image_url(setting('background')) : 'https://via.placeholder.com/2000x500' }}') center / cover no-repeat; height: 250px">--}}
+{{--                    <p>Soutenir</p>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </section>--}}
+{{--    @endif--}}
+
+    @if(theme_config('video.box.toggle'))
+        <section class="w-100 d-flex justify-content-center py-4 px-3 mt-3 flex-row gap-11 bg-myBackground align-items-center justify-content-around">
+            <div  data-aos="zoom-in-down"  class="d-flex flex-column align-items-center w-25 gap-1">
+                <p class="fs-3 firstLetter text-myText">{{theme_config("video.text.description")}}</p>
+                <a href="" class="btnFrame">{{theme_config("video.text.btn")}}</a>
             </div>
-            <div data-aos="flip-right" class="cursorAnim shadowBox rounded-3 home-anim home-background w-50 bg-light" style="background: url('{{ setting('background') ? image_url(setting('background')) : 'https://via.placeholder.com/2000x500' }}') center / cover no-repeat; height: 250px">
-                <p class="bg-myBackground text-myText text-warning w-auto p-2 rounded-1 text-center font-monospace">Nouveau partenaire <i class="bi bi-exclamation-lg bg-danger text-myBackground rounded-1"></i></p>
+            <div data-aos="zoom-in-left" class="d-flex flex-colum align-items-center justify-content-center position-relative">
+                @if(theme_config('video.img.toggle'))
+                    <img class="borderFrame mx-auto frameVideo" id="showImg" src="{{ image_url(theme_config("video.img.url")) }}"/>
+                @endif
+                <button id="play-button" class="border-0  text-myText rounded-1 position-absolute top-50 start-50 translate-middle z-3 fs-1"> <i class="bi bi-play-fill"></i></button>
             </div>
-            <div data-aos="flip-right" class="cursorAnim shadowBox rounded-3 home-anim home-background w-25 bg-light" style="background: url('{{ setting('background') ? image_url(setting('background')) : 'https://via.placeholder.com/2000x500' }}') center / cover no-repeat; height: 250px">
-                <p>Soutenir</p>
-            </div>
-        </div>
-    </section>
+        </section>
     @endif
 
-    <section class="w-100 d-flex justify-content-center py-4 px-3 mt-3 flex-row gap-11 bg-myBackground align-items-center justify-content-around">
-        <div  data-aos="zoom-in-down"  class="d-flex flex-column align-items-center w-25 gap-1">
-            <p class="fs-3 firstLetter text-myText">{{theme_config("video.text.description")}}</p>
-            <a href="" class="btnFrame">{{theme_config("video.text.btn")}}</a>
-        </div>
-        <div data-aos="zoom-in-left" class="d-flex flex-colum align-items-center justify-content-center position-relative">
-            <img class="borderFrame mx-auto frameVideo" id="showImg" src="{{ image_url(theme_config("video.img.url")) }}"/>
-            <button id="play-button" class="border-0  text-myText rounded-1 position-absolute top-50 start-50 translate-middle z-3 fs-1"> <i class="bi bi-play-fill"></i></button>
-        </div>
-    </section>
-
-
+    @plugin('changelog')
     @php
         $updates = Azuriom\Plugin\Changelog\Models\Update::orderByDesc('id')->limit(6)->get();
     @endphp
-    <article class="mb-5 mt-5 d-flex gap-5 justify-content-center">
-        @forelse($updates as $update)
-            <div data-aos="flip-left" class="card mb-3 d-flex flex-row gap-1 w-25 bg-myBackground shadowBox" >
-                <div class="card-body w-auto d-flex flex-column align-items-center">
-                    <h2 class="card-title mb-1 text-myText"
-                        style="display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical; overflow: hidden;">{{ $update->name }}</h2>
-                    <p class="text-myText">
-                        <span class="badge me-1 small" style="background-color: #1a1a1a;">
-                            <i class="bi bi-folder"></i> {{ $update->category->name }}
-                        </span>
-                        <span class="badge me-1 small" style="background-color: #1a1a1a;">
-                            <i class="bi bi-calendar"></i> {{ format_date($update->created_at) }}
-                        </span>
-                    </p>
-                    <div
-                        style="display: -webkit-box;-webkit-line-clamp: 4;-webkit-box-orient: vertical; overflow: hidden;" class="text-myText">
-                        {!! $update->description !!}
+
+        <article class="mb-5 mt-5 d-flex gap-5 justify-content-center">
+                @forelse($updates as $update){
+                    <div data-aos="flip-left" class="card mb-3 d-flex flex-row gap-1 w-25 bg-myBackground shadowBox" >
+                        <div class="card-body w-auto d-flex flex-column align-items-center">
+                            <h2 class="card-title mb-1 text-myText"
+                                style="display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical; overflow: hidden;">{{ $update->name }}</h2>
+                            <p class="text-myText">
+                                    <span class="badge me-1 small" style="background-color: #1a1a1a;">
+                                        <i class="bi bi-folder"></i> {{ $update->category->name }}
+                                    </span>
+                                <span class="badge me-1 small" style="background-color: #1a1a1a;">
+                                        <i class="bi bi-calendar"></i> {{ format_date($update->created_at) }}
+                                    </span>
+                            </p>
+                            <div
+                                style="display: -webkit-box;-webkit-line-clamp: 4;-webkit-box-orient: vertical; overflow: hidden;" class="text-myText">
+                                {!! $update->description !!}
+                            </div>
+                            <div class="text-end mt-3">
+                                <a class="btn btn-primary btnJoin"
+                                   href="{{ route('changelog.categories.show', $update->category->id) }}">{{ trans('theme::blockworld.config.text_patchnote') }}</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="text-end mt-3">
-                        <a class="btn btn-primary btnJoin"
-                           href="{{ route('changelog.categories.show', $update->category->id) }}">VOIR</a>
+                }
+                @empty
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <p>{{ trans('changelog::messages.categories.empty') }}</p>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-
-        @empty
-            <div class="card mb-3">
-                <div class="card-body">
-                    <p>{{ trans('changelog::messages.categories.empty') }}</p>
-                </div>
-            </div>
-        @endforelse
-
-    </article>
-
+                @endforelse
+        </article>
+    @endplugin
 @endsection
 
 

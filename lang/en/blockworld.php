@@ -19,7 +19,10 @@ return [
         'video_description' => 'Video field text',
         'video_btn' => 'Button text',
         'video_link' => 'Video link',
-        'video_img' => 'Image link',
+        'video_img' => 'Image file (presentation image -> must be activated)',
+        'video_toogle' => 'Activate presentation image (advisor) ',
+        'text_patchnote' => 'Read ',
+
 
         'vote_content' => 'Vote page text',
         'load_text' => 'Page loading text',
